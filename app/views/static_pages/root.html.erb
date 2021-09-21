@@ -1,0 +1,32 @@
+<h1>Hello there... These are the orders</h1>
+
+<button type="submit" id="btn">Sponsor dis</button>
+<script charset="utf-8">
+  const btn = document.querySelector('#btn');
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    fetch('/sponsorships', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+        'X-CSRF-Token': "<%= form_authenticity_token%>"
+      },
+      body: JSON.stringify({
+        authenticiy_token: "<%= form_authenticity_token %>",
+
+        sponsorship_order: {
+          status: "paid",
+          paid_at: 1632066571,
+          stripe_id: 'pi_123',
+        }
+      }),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log('Success', data);
+    })
+    .catch((error) => {
+      console.log('Error', error);
+    });
+  });
+</script>
