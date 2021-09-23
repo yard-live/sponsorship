@@ -1201,3 +1201,388 @@ Processing by SponsorshipsController#create as */*
 Completed 200 OK in 18ms (Views: 0.4ms | ActiveRecord: 4.2ms | Allocations: 6183)
 
 
+Started GET "/" for ::1 at 2021-09-21 19:15:54 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#root as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 5.3ms | Allocations: 350)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 26.7ms | Allocations: 4126)
+Completed 200 OK in 31ms (Views: 28.8ms | ActiveRecord: 0.0ms | Allocations: 5105)
+
+
+Started POST "/sponsorships" for ::1 at 2021-09-21 19:15:56 +0200
+Processing by SponsorshipsController#create as */*
+  Parameters: {"authenticiy_token"=>"[FILTERED]", "sponsorship_order"=>{"status"=>"paid", "paid_at"=>1632066571, "stripe_id"=>"pi_123"}, "sponsorship"=>{"authenticiy_token"=>"[FILTERED]", "sponsorship_order"=>{"status"=>"paid", "paid_at"=>1632066571, "stripe_id"=>"pi_123"}}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sponsorships_controller.rb:15:in `create'
+  [1m[36mSponsorshipOrder Create (2.4ms)[0m  [1m[32mINSERT INTO "sponsorship_orders" ("stripe_id", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["stripe_id", "pi_123"], ["status", "paid"], ["created_at", "2021-09-21 17:15:56.414167"], ["updated_at", "2021-09-21 17:15:56.414167"]]
+  ↳ app/controllers/sponsorships_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/sponsorships_controller.rb:15:in `create'
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 2.6ms | Allocations: 5919)
+
+
+  
+ActiveRecord::RecordNotUnique (SQLite3::ConstraintException: UNIQUE constraint failed: sponsorship_orders.stripe_id):
+  
+app/controllers/sponsorships_controller.rb:15:in `create'
+Started GET "/" for ::1 at 2021-09-21 19:16:29 +0200
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#root as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 5.8ms | Allocations: 503)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 51.7ms | Allocations: 5798)
+Completed 200 OK in 65ms (Views: 56.9ms | ActiveRecord: 0.0ms | Allocations: 8238)
+
+
+Started POST "/sponsorships" for ::1 at 2021-09-21 19:16:32 +0200
+Processing by SponsorshipsController#create as */*
+  Parameters: {"authenticiy_token"=>"[FILTERED]", "sponsorship_order"=>{"status"=>"paid", "paid_at"=>1632066571, "stripe_id"=>"pi_123"}, "sponsorship"=>{"authenticiy_token"=>"[FILTERED]", "sponsorship_order"=>{"status"=>"paid", "paid_at"=>1632066571, "stripe_id"=>"pi_123"}}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sponsorships_controller.rb:15:in `create'
+  [1m[36mSponsorshipOrder Create (1.8ms)[0m  [1m[32mINSERT INTO "sponsorship_orders" ("stripe_id", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["stripe_id", "pi_123"], ["status", "paid"], ["created_at", "2021-09-21 17:16:32.361421"], ["updated_at", "2021-09-21 17:16:32.361421"]]
+  ↳ app/controllers/sponsorships_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/sponsorships_controller.rb:15:in `create'
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 2.4ms | Allocations: 7060)
+
+
+  
+ActiveRecord::RecordNotUnique (SQLite3::ConstraintException: UNIQUE constraint failed: sponsorship_orders.stripe_id):
+  
+app/controllers/sponsorships_controller.rb:15:in `create'
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mSponsorshipOrder Load (0.7ms)[0m  [1m[34mSELECT "sponsorship_orders".* FROM "sponsorship_orders" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/sponsorships" for ::1 at 2021-09-21 19:37:30 +0200
+Processing by SponsorshipsController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/sponsorships_controller.rb:4:in `index'
+  [1m[36mSponsorshipOrder Load (0.3ms)[0m  [1m[34mSELECT "sponsorship_orders".* FROM "sponsorship_orders"[0m
+  ↳ app/controllers/sponsorships_controller.rb:4:in `index'
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.6ms | Allocations: 1839)
+
+
+Started GET "/" for ::1 at 2021-09-22 14:29:31 +0200
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#root as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 4.9ms | Allocations: 522)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 33.1ms | Allocations: 5623)
+Completed 200 OK in 45ms (Views: 37.9ms | ActiveRecord: 0.0ms | Allocations: 8063)
+
+
+Started GET "/" for ::1 at 2021-09-22 14:29:31 +0200
+Processing by StaticPagesController#root as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.8ms | Allocations: 187)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 35.0ms | Allocations: 6182)
+Completed 200 OK in 38ms (Views: 37.0ms | ActiveRecord: 0.0ms | Allocations: 6449)
+
+
+Started GET "/sponsorships" for ::1 at 2021-09-22 14:29:32 +0200
+Processing by SponsorshipsController#index as */*
+  [1m[36mSponsorshipOrder Load (0.8ms)[0m  [1m[34mSELECT "sponsorship_orders".* FROM "sponsorship_orders"[0m
+  ↳ app/controllers/sponsorships_controller.rb:4:in `index'
+Completed 200 OK in 12ms (Views: 8.4ms | ActiveRecord: 1.3ms | Allocations: 4564)
+
+
+Started GET "/" for ::1 at 2021-09-22 16:07:40 +0200
+Processing by StaticPagesController#root as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 1.5ms | Allocations: 187)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.4ms | Allocations: 3611)
+Completed 200 OK in 19ms (Views: 17.9ms | Allocations: 3873)
+
+
+Started GET "/" for ::1 at 2021-09-22 18:17:58 +0200
+Processing by StaticPagesController#root as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 2.3ms | Allocations: 187)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 25.8ms | Allocations: 3609)
+Completed 200 OK in 29ms (Views: 27.5ms | Allocations: 3865)
+
+
+Started GET "/sponsorships" for ::1 at 2021-09-22 18:17:59 +0200
+Processing by SponsorshipsController#index as */*
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/sponsorships_controller.rb:4:in `index'
+  [1m[36mSponsorshipOrder Load (0.7ms)[0m  [1m[34mSELECT "sponsorship_orders".* FROM "sponsorship_orders"[0m
+  ↳ app/controllers/sponsorships_controller.rb:4:in `index'
+Completed 200 OK in 17ms (Views: 15.8ms | ActiveRecord: 2.6ms | Allocations: 2199)
+
+
+Started GET "/" for ::1 at 2021-09-22 18:18:19 +0200
+Processing by StaticPagesController#root as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 1.7ms | Allocations: 370)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 3960)
+Completed 200 OK in 14ms (Views: 12.4ms | ActiveRecord: 0.0ms | Allocations: 4930)
+
+
+Started GET "/sponsorships" for ::1 at 2021-09-22 18:18:20 +0200
+Processing by SponsorshipsController#index as */*
+  [1m[36mSponsorshipOrder Load (0.2ms)[0m  [1m[34mSELECT "sponsorship_orders".* FROM "sponsorship_orders"[0m
+  ↳ app/controllers/sponsorships_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.2ms | Allocations: 907)
+
+
+Started GET "/" for ::1 at 2021-09-22 18:23:41 +0200
+Processing by StaticPagesController#root as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.8ms | Allocations: 365)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.1ms | Allocations: 3957)
+Completed 200 OK in 16ms (Views: 15.7ms | Allocations: 4923)
+
+
+Started GET "/sponsorships" for ::1 at 2021-09-22 18:23:41 +0200
+Processing by SponsorshipsController#index as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/sponsorships_controller.rb:4:in `index'
+  [1m[36mSponsorshipOrder Load (0.8ms)[0m  [1m[34mSELECT "sponsorship_orders".* FROM "sponsorship_orders"[0m
+  ↳ app/controllers/sponsorships_controller.rb:4:in `index'
+Completed 200 OK in 6ms (Views: 6.1ms | ActiveRecord: 1.2ms | Allocations: 1638)
+
+
+Started GET "/" for ::1 at 2021-09-22 18:23:56 +0200
+Processing by StaticPagesController#root as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.4ms | Allocations: 187)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 3611)
+Completed 200 OK in 7ms (Views: 7.0ms | ActiveRecord: 0.0ms | Allocations: 3872)
+
+
+Started GET "/sponsorships" for ::1 at 2021-09-22 18:23:56 +0200
+Processing by SponsorshipsController#index as */*
+  [1m[36mSponsorshipOrder Load (0.1ms)[0m  [1m[34mSELECT "sponsorship_orders".* FROM "sponsorship_orders"[0m
+  ↳ app/controllers/sponsorships_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.1ms | Allocations: 919)
+
+
+Started POST "/sponsorships" for ::1 at 2021-09-22 18:24:06 +0200
+Processing by SponsorshipsController#create as */*
+  Parameters: {"authenticiy_token"=>"[FILTERED]", "sponsorship_order"=>{"status"=>"paid", "paid_at"=>1632066571, "stripe_id"=>"pi_123"}, "sponsorship"=>{"authenticiy_token"=>"[FILTERED]", "sponsorship_order"=>{"status"=>"paid", "paid_at"=>1632066571, "stripe_id"=>"pi_123"}}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sponsorships_controller.rb:15:in `create'
+  [1m[36mSponsorshipOrder Create (2.2ms)[0m  [1m[32mINSERT INTO "sponsorship_orders" ("stripe_id", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["stripe_id", "pi_123"], ["status", "paid"], ["created_at", "2021-09-22 16:24:06.925388"], ["updated_at", "2021-09-22 16:24:06.925388"]]
+  ↳ app/controllers/sponsorships_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/sponsorships_controller.rb:15:in `create'
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 2.3ms | Allocations: 3490)
+
+
+  
+ActiveRecord::RecordNotUnique (SQLite3::ConstraintException: UNIQUE constraint failed: sponsorship_orders.stripe_id):
+  
+app/controllers/sponsorships_controller.rb:15:in `create'
+Started GET "/" for ::1 at 2021-09-22 18:25:43 +0200
+Processing by StaticPagesController#root as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 1.2ms | Allocations: 391)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.0ms | Allocations: 4109)
+Completed 200 OK in 18ms (Views: 16.9ms | ActiveRecord: 0.0ms | Allocations: 5160)
+
+
+Started GET "/sponsorships" for ::1 at 2021-09-22 18:25:43 +0200
+Processing by SponsorshipsController#index as */*
+  [1m[36mSponsorshipOrder Load (0.2ms)[0m  [1m[34mSELECT "sponsorship_orders".* FROM "sponsorship_orders"[0m
+  ↳ app/controllers/sponsorships_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.2ms | Allocations: 1000)
+
+
+Started GET "/" for ::1 at 2021-09-22 18:27:36 +0200
+Processing by StaticPagesController#root as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 1.1ms | Allocations: 361)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 3951)
+Completed 200 OK in 14ms (Views: 13.2ms | ActiveRecord: 0.0ms | Allocations: 4914)
+
+
+Started GET "/sponsorships" for ::1 at 2021-09-22 18:27:36 +0200
+Processing by SponsorshipsController#index as */*
+  [1m[36mSponsorshipOrder Load (0.4ms)[0m  [1m[34mSELECT "sponsorship_orders".* FROM "sponsorship_orders"[0m
+  ↳ app/controllers/sponsorships_controller.rb:4:in `index'
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.4ms | Allocations: 893)
+
+
+Started POST "/sponsorships" for ::1 at 2021-09-22 18:27:37 +0200
+Processing by SponsorshipsController#create as */*
+  Parameters: {"authenticiy_token"=>"[FILTERED]", "sponsorship_order"=>{"status"=>"paid", "paid_at"=>1632066571, "stripe_id"=>"pi_123Wed Sep 22 2021 18:27:37 GMT+0200 (Central European Summer Time)"}, "sponsorship"=>{"authenticiy_token"=>"[FILTERED]", "sponsorship_order"=>{"status"=>"paid", "paid_at"=>1632066571, "stripe_id"=>"pi_123Wed Sep 22 2021 18:27:37 GMT+0200 (Central European Summer Time)"}}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sponsorships_controller.rb:15:in `create'
+  [1m[36mSponsorshipOrder Create (1.4ms)[0m  [1m[32mINSERT INTO "sponsorship_orders" ("stripe_id", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["stripe_id", "pi_123Wed Sep 22 2021 18:27:37 GMT+0200 (Central European Summer Time)"], ["status", "paid"], ["created_at", "2021-09-22 16:27:37.992871"], ["updated_at", "2021-09-22 16:27:37.992871"]]
+  ↳ app/controllers/sponsorships_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sponsorships_controller.rb:15:in `create'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 2.5ms | Allocations: 2515)
+
+
+Started GET "/" for ::1 at 2021-09-22 18:27:39 +0200
+Processing by StaticPagesController#root as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.4ms | Allocations: 187)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | Allocations: 3609)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.0ms | Allocations: 3866)
+
+
+Started GET "/sponsorships" for ::1 at 2021-09-22 18:27:40 +0200
+Processing by SponsorshipsController#index as */*
+  [1m[36mSponsorshipOrder Load (0.2ms)[0m  [1m[34mSELECT "sponsorship_orders".* FROM "sponsorship_orders"[0m
+  ↳ app/controllers/sponsorships_controller.rb:4:in `index'
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.2ms | Allocations: 1015)
+
+
+Started GET "/sponsorships" for ::1 at 2021-09-22 18:27:48 +0200
+Processing by SponsorshipsController#index as HTML
+  [1m[36mSponsorshipOrder Load (0.1ms)[0m  [1m[34mSELECT "sponsorship_orders".* FROM "sponsorship_orders"[0m
+  ↳ app/controllers/sponsorships_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.1ms | Allocations: 1006)
+
+
+Started GET "/sponsorships" for ::1 at 2021-09-22 18:28:42 +0200
+Processing by SponsorshipsController#index as HTML
+  [1m[36mSponsorshipOrder Load (0.1ms)[0m  [1m[34mSELECT "sponsorship_orders".* FROM "sponsorship_orders"[0m
+  ↳ app/controllers/sponsorships_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.1ms | Allocations: 1008)
+
+
+Started GET "/" for ::1 at 2021-09-22 18:28:45 +0200
+Processing by StaticPagesController#root as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.6ms | Allocations: 361)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 3952)
+Completed 200 OK in 14ms (Views: 13.5ms | ActiveRecord: 0.0ms | Allocations: 4915)
+
+
+Started GET "/sponsorships" for ::1 at 2021-09-22 18:28:45 +0200
+Processing by SponsorshipsController#index as */*
+  [1m[36mSponsorshipOrder Load (0.2ms)[0m  [1m[34mSELECT "sponsorship_orders".* FROM "sponsorship_orders"[0m
+  ↳ app/controllers/sponsorships_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.2ms | Allocations: 1011)
+
+
+Started POST "/sponsorships" for ::1 at 2021-09-22 18:28:47 +0200
+Processing by SponsorshipsController#create as */*
+  Parameters: {"authenticiy_token"=>"[FILTERED]", "sponsorship_order"=>{"status"=>"paid", "paid_at"=>1632066571, "stripe_id"=>"pi_123_0.05323864527016342"}, "sponsorship"=>{"authenticiy_token"=>"[FILTERED]", "sponsorship_order"=>{"status"=>"paid", "paid_at"=>1632066571, "stripe_id"=>"pi_123_0.05323864527016342"}}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sponsorships_controller.rb:15:in `create'
+  [1m[36mSponsorshipOrder Create (0.4ms)[0m  [1m[32mINSERT INTO "sponsorship_orders" ("stripe_id", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["stripe_id", "pi_123_0.05323864527016342"], ["status", "paid"], ["created_at", "2021-09-22 16:28:47.136576"], ["updated_at", "2021-09-22 16:28:47.136576"]]
+  ↳ app/controllers/sponsorships_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sponsorships_controller.rb:15:in `create'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 2.0ms | Allocations: 2376)
+
+
+Started GET "/" for ::1 at 2021-09-22 18:28:47 +0200
+Processing by StaticPagesController#root as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.4ms | Allocations: 187)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 3611)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.0ms | Allocations: 3869)
+
+
+Started GET "/sponsorships" for ::1 at 2021-09-22 18:28:48 +0200
+Processing by SponsorshipsController#index as */*
+  [1m[36mSponsorshipOrder Load (0.2ms)[0m  [1m[34mSELECT "sponsorship_orders".* FROM "sponsorship_orders"[0m
+  ↳ app/controllers/sponsorships_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.2ms | Allocations: 1129)
+
+
+Started POST "/sponsorships" for ::1 at 2021-09-22 18:28:49 +0200
+Processing by SponsorshipsController#create as */*
+  Parameters: {"authenticiy_token"=>"[FILTERED]", "sponsorship_order"=>{"status"=>"paid", "paid_at"=>1632066571, "stripe_id"=>"pi_123_0.2285514241521418"}, "sponsorship"=>{"authenticiy_token"=>"[FILTERED]", "sponsorship_order"=>{"status"=>"paid", "paid_at"=>1632066571, "stripe_id"=>"pi_123_0.2285514241521418"}}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sponsorships_controller.rb:15:in `create'
+  [1m[36mSponsorshipOrder Create (2.8ms)[0m  [1m[32mINSERT INTO "sponsorship_orders" ("stripe_id", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["stripe_id", "pi_123_0.2285514241521418"], ["status", "paid"], ["created_at", "2021-09-22 16:28:49.582293"], ["updated_at", "2021-09-22 16:28:49.582293"]]
+  ↳ app/controllers/sponsorships_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (6.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sponsorships_controller.rb:15:in `create'
+Completed 200 OK in 36ms (Views: 0.2ms | ActiveRecord: 9.5ms | Allocations: 2375)
+
+
+Started GET "/" for ::1 at 2021-09-22 18:28:50 +0200
+Processing by StaticPagesController#root as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 0.3ms | Allocations: 187)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 3609)
+Completed 200 OK in 5ms (Views: 4.8ms | ActiveRecord: 0.0ms | Allocations: 3866)
+
+
+Started GET "/sponsorships" for ::1 at 2021-09-22 18:28:50 +0200
+Processing by SponsorshipsController#index as */*
+  [1m[36mSponsorshipOrder Load (0.2ms)[0m  [1m[34mSELECT "sponsorship_orders".* FROM "sponsorship_orders"[0m
+  ↳ app/controllers/sponsorships_controller.rb:4:in `index'
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.2ms | Allocations: 1248)
+
+
+Started GET "/sponsorships" for ::1 at 2021-09-22 18:28:55 +0200
+Processing by SponsorshipsController#index as HTML
+  [1m[36mSponsorshipOrder Load (0.2ms)[0m  [1m[34mSELECT "sponsorship_orders".* FROM "sponsorship_orders"[0m
+  ↳ app/controllers/sponsorships_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.2ms | Allocations: 1243)
+
+
+Started POST "/webhooks" for ::1 at 2021-09-22 19:28:03 +0200
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WebhooksController#create as XML
+  Parameters: {"id"=>"evt_3JcZEjK7AGKu1sXp1xKNLOnU", "object"=>"event", "api_version"=>"2020-08-27", "created"=>1632331681, "data"=>{"object"=>{"id"=>"pi_3JcZEjK7AGKu1sXp1UkclVmk", "object"=>"payment_intent", "amount"=>3000, "amount_capturable"=>0, "amount_received"=>0, "application"=>nil, "application_fee_amount"=>nil, "canceled_at"=>nil, "cancellation_reason"=>nil, "capture_method"=>"automatic", "charges"=>{"object"=>"list", "data"=>[], "has_more"=>false, "total_count"=>0, "url"=>"/v1/charges?payment_intent=pi_3JcZEjK7AGKu1sXp1UkclVmk"}, "client_secret"=>"[FILTERED]", "confirmation_method"=>"automatic", "created"=>1632331681, "currency"=>"usd", "customer"=>nil, "description"=>nil, "invoice"=>nil, "last_payment_error"=>nil, "livemode"=>false, "metadata"=>{}, "next_action"=>nil, "on_behalf_of"=>nil, "payment_method"=>nil, "payment_method_options"=>{"card"=>{"installments"=>nil, "network"=>nil, "request_three_d_secure"=>"automatic"}}, "payment_method_types"=>["card"], "receipt_email"=>nil, "review"=>nil, "setup_future_usage"=>nil, "shipping"=>{"address"=>{"city"=>"San Francisco", "country"=>"US", "line1"=>"510 Townsend St", "line2"=>nil, "postal_code"=>"94103", "state"=>"CA"}, "carrier"=>nil, "name"=>"Jenny Rosen", "phone"=>nil, "tracking_number"=>nil}, "source"=>nil, "statement_descriptor"=>nil, "statement_descriptor_suffix"=>nil, "status"=>"requires_payment_method", "transfer_data"=>nil, "transfer_group"=>nil}}, "livemode"=>false, "pending_webhooks"=>2, "request"=>{"id"=>"req_ZJKR3Oypdf3UCa", "idempotency_key"=>"[FILTERED]"}, "type"=>"payment_intent.created", "webhook"=>{"id"=>"evt_3JcZEjK7AGKu1sXp1xKNLOnU", "object"=>"event", "api_version"=>"2020-08-27", "created"=>1632331681, "data"=>{"object"=>{"id"=>"pi_3JcZEjK7AGKu1sXp1UkclVmk", "object"=>"payment_intent", "amount"=>3000, "amount_capturable"=>0, "amount_received"=>0, "application"=>nil, "application_fee_amount"=>nil, "canceled_at"=>nil, "cancellation_reason"=>nil, "capture_method"=>"automatic", "charges"=>{"object"=>"list", "data"=>[], "has_more"=>false, "total_count"=>0, "url"=>"/v1/charges?payment_intent=pi_3JcZEjK7AGKu1sXp1UkclVmk"}, "client_secret"=>"[FILTERED]", "confirmation_method"=>"automatic", "created"=>1632331681, "currency"=>"usd", "customer"=>nil, "description"=>nil, "invoice"=>nil, "last_payment_error"=>nil, "livemode"=>false, "metadata"=>{}, "next_action"=>nil, "on_behalf_of"=>nil, "payment_method"=>nil, "payment_method_options"=>{"card"=>{"installments"=>nil, "network"=>nil, "request_three_d_secure"=>"automatic"}}, "payment_method_types"=>["card"], "receipt_email"=>nil, "review"=>nil, "setup_future_usage"=>nil, "shipping"=>{"address"=>{"city"=>"San Francisco", "country"=>"US", "line1"=>"510 Townsend St", "line2"=>nil, "postal_code"=>"94103", "state"=>"CA"}, "carrier"=>nil, "name"=>"Jenny Rosen", "phone"=>nil, "tracking_number"=>nil}, "source"=>nil, "statement_descriptor"=>nil, "statement_descriptor_suffix"=>nil, "status"=>"requires_payment_method", "transfer_data"=>nil, "transfer_group"=>nil}}, "livemode"=>false, "pending_webhooks"=>2, "request"=>{"id"=>"req_ZJKR3Oypdf3UCa", "idempotency_key"=>"[FILTERED]"}, "type"=>"payment_intent.created"}}
+Completed 200 OK in 15ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 2977)
+
+
+Started POST "/webhooks" for ::1 at 2021-09-22 19:28:07 +0200
+Processing by WebhooksController#create as XML
+  Parameters: {"id"=>"evt_1JcZEpK7AGKu1sXp9QXPE36U", "object"=>"event", "api_version"=>"2020-08-27", "created"=>1632331684, "data"=>{"object"=>{"id"=>"cus_KH7TNeql2aLgPx", "object"=>"customer", "address"=>nil, "balance"=>0, "created"=>1632331684, "currency"=>nil, "default_source"=>nil, "delinquent"=>false, "description"=>nil, "discount"=>nil, "email"=>"stripe@example.com", "invoice_prefix"=>"4448A463", "invoice_settings"=>{"custom_fields"=>nil, "default_payment_method"=>nil, "footer"=>nil}, "livemode"=>false, "metadata"=>{}, "name"=>nil, "phone"=>nil, "preferred_locales"=>[], "shipping"=>nil, "tax_exempt"=>"none"}}, "livemode"=>false, "pending_webhooks"=>2, "request"=>{"id"=>"req_ucdF0o2emQhbaD", "idempotency_key"=>"[FILTERED]"}, "type"=>"customer.created", "webhook"=>{"id"=>"evt_1JcZEpK7AGKu1sXp9QXPE36U", "object"=>"event", "api_version"=>"2020-08-27", "created"=>1632331684, "data"=>{"object"=>{"id"=>"cus_KH7TNeql2aLgPx", "object"=>"customer", "address"=>nil, "balance"=>0, "created"=>1632331684, "currency"=>nil, "default_source"=>nil, "delinquent"=>false, "description"=>nil, "discount"=>nil, "email"=>"stripe@example.com", "invoice_prefix"=>"4448A463", "invoice_settings"=>{"custom_fields"=>nil, "default_payment_method"=>nil, "footer"=>nil}, "livemode"=>false, "metadata"=>{}, "name"=>nil, "phone"=>nil, "preferred_locales"=>[], "shipping"=>nil, "tax_exempt"=>"none"}}, "livemode"=>false, "pending_webhooks"=>2, "request"=>{"id"=>"req_ucdF0o2emQhbaD", "idempotency_key"=>"[FILTERED]"}, "type"=>"customer.created"}}
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1118)
+
+
+Started POST "/webhooks" for ::1 at 2021-09-22 19:28:07 +0200
+Processing by WebhooksController#create as XML
+  Parameters: {"id"=>"evt_3JcZEjK7AGKu1sXp1Ejy64T6", "object"=>"event", "api_version"=>"2020-08-27", "created"=>1632331686, "data"=>{"object"=>{"id"=>"pi_3JcZEjK7AGKu1sXp1UkclVmk", "object"=>"payment_intent", "amount"=>3000, "amount_capturable"=>0, "amount_received"=>3000, "application"=>nil, "application_fee_amount"=>nil, "canceled_at"=>nil, "cancellation_reason"=>nil, "capture_method"=>"automatic", "charges"=>{"object"=>"list", "data"=>[{"id"=>"ch_3JcZEjK7AGKu1sXp11zsh21a", "object"=>"charge", "amount"=>3000, "amount_captured"=>3000, "amount_refunded"=>0, "amount_updates"=>[], "application"=>nil, "application_fee"=>nil, "application_fee_amount"=>nil, "balance_transaction"=>"txn_3JcZEjK7AGKu1sXp1sYhLWTS", "billing_details"=>{"address"=>{"city"=>nil, "country"=>nil, "line1"=>nil, "line2"=>nil, "postal_code"=>nil, "state"=>nil}, "email"=>"stripe@example.com", "name"=>nil, "phone"=>nil}, "calculated_statement_descriptor"=>"YARD.LIVE", "captured"=>true, "created"=>1632331685, "currency"=>"usd", "customer"=>"cus_KH7TNeql2aLgPx", "description"=>nil, "destination"=>nil, "dispute"=>nil, "disputed"=>false, "failure_code"=>nil, "failure_message"=>nil, "fraud_details"=>{}, "invoice"=>nil, "livemode"=>false, "metadata"=>{}, "on_behalf_of"=>nil, "order"=>nil, "outcome"=>{"network_status"=>"approved_by_network", "reason"=>nil, "risk_level"=>"normal", "risk_score"=>3, "seller_message"=>"Payment complete.", "type"=>"authorized"}, "paid"=>true, "payment_intent"=>"pi_3JcZEjK7AGKu1sXp1UkclVmk", "payment_method"=>"pm_1JcZElK7AGKu1sXpszK5j8pb", "payment_method_details"=>{"card"=>{"brand"=>"visa", "checks"=>{"address_line1_check"=>nil, "address_postal_code_check"=>nil, "cvc_check"=>nil}, "country"=>"US", "exp_month"=>9, "exp_year"=>2022, "fingerprint"=>"Ljea7bKAQCDQny0P", "funding"=>"credit", "installments"=>nil, "last4"=>"4242", "network"=>"visa", "three_d_secure"=>nil, "wallet"=>nil}, "type"=>"card"}, "receipt_email"=>nil, "receipt_number"=>nil, "receipt_url"=>"https://pay.stripe.com/receipts/acct_1JEt3yK7AGKu1sXp/ch_3JcZEjK7AGKu1sXp11zsh21a/rcpt_KH7TR6qowLFksT810lqRN8XuCsqnTWP", "refunded"=>false, "refunds"=>{"object"=>"list", "data"=>[], "has_more"=>false, "total_count"=>0, "url"=>"/v1/charges/ch_3JcZEjK7AGKu1sXp11zsh21a/refunds"}, "review"=>nil, "shipping"=>{"address"=>{"city"=>"San Francisco", "country"=>"US", "line1"=>"510 Townsend St", "line2"=>nil, "postal_code"=>"94103", "state"=>"CA"}, "carrier"=>nil, "name"=>"Jenny Rosen", "phone"=>nil, "tracking_number"=>nil}, "source"=>nil, "source_transfer"=>nil, "statement_descriptor"=>nil, "statement_descriptor_suffix"=>nil, "status"=>"succeeded", "transfer_data"=>nil, "transfer_group"=>nil}], "has_more"=>false, "total_count"=>1, "url"=>"/v1/charges?payment_intent=pi_3JcZEjK7AGKu1sXp1UkclVmk"}, "client_secret"=>"[FILTERED]", "confirmation_method"=>"automatic", "created"=>1632331681, "currency"=>"usd", "customer"=>"cus_KH7TNeql2aLgPx", "description"=>nil, "invoice"=>nil, "last_payment_error"=>nil, "livemode"=>false, "metadata"=>{}, "next_action"=>nil, "on_behalf_of"=>nil, "payment_method"=>"pm_1JcZElK7AGKu1sXpszK5j8pb", "payment_method_options"=>{"card"=>{"installments"=>nil, "network"=>nil, "request_three_d_secure"=>"automatic"}}, "payment_method_types"=>["card"], "receipt_email"=>nil, "review"=>nil, "setup_future_usage"=>nil, "shipping"=>{"address"=>{"city"=>"San Francisco", "country"=>"US", "line1"=>"510 Townsend St", "line2"=>nil, "postal_code"=>"94103", "state"=>"CA"}, "carrier"=>nil, "name"=>"Jenny Rosen", "phone"=>nil, "tracking_number"=>nil}, "source"=>nil, "statement_descriptor"=>nil, "statement_descriptor_suffix"=>nil, "status"=>"succeeded", "transfer_data"=>nil, "transfer_group"=>nil}}, "livemode"=>false, "pending_webhooks"=>2, "request"=>{"id"=>"req_ucdF0o2emQhbaD", "idempotency_key"=>"[FILTERED]"}, "type"=>"payment_intent.succeeded", "webhook"=>{"id"=>"evt_3JcZEjK7AGKu1sXp1Ejy64T6", "object"=>"event", "api_version"=>"2020-08-27", "created"=>1632331686, "data"=>{"object"=>{"id"=>"pi_3JcZEjK7AGKu1sXp1UkclVmk", "object"=>"payment_intent", "amount"=>3000, "amount_capturable"=>0, "amount_received"=>3000, "application"=>nil, "application_fee_amount"=>nil, "canceled_at"=>nil, "cancellation_reason"=>nil, "capture_method"=>"automatic", "charges"=>{"object"=>"list", "data"=>[{"id"=>"ch_3JcZEjK7AGKu1sXp11zsh21a", "object"=>"charge", "amount"=>3000, "amount_captured"=>3000, "amount_refunded"=>0, "amount_updates"=>[], "application"=>nil, "application_fee"=>nil, "application_fee_amount"=>nil, "balance_transaction"=>"txn_3JcZEjK7AGKu1sXp1sYhLWTS", "billing_details"=>{"address"=>{"city"=>nil, "country"=>nil, "line1"=>nil, "line2"=>nil, "postal_code"=>nil, "state"=>nil}, "email"=>"stripe@example.com", "name"=>nil, "phone"=>nil}, "calculated_statement_descriptor"=>"YARD.LIVE", "captured"=>true, "created"=>1632331685, "currency"=>"usd", "customer"=>"cus_KH7TNeql2aLgPx", "description"=>nil, "destination"=>nil, "dispute"=>nil, "disputed"=>false, "failure_code"=>nil, "failure_message"=>nil, "fraud_details"=>{}, "invoice"=>nil, "livemode"=>false, "metadata"=>{}, "on_behalf_of"=>nil, "order"=>nil, "outcome"=>{"network_status"=>"approved_by_network", "reason"=>nil, "risk_level"=>"normal", "risk_score"=>3, "seller_message"=>"Payment complete.", "type"=>"authorized"}, "paid"=>true, "payment_intent"=>"pi_3JcZEjK7AGKu1sXp1UkclVmk", "payment_method"=>"pm_1JcZElK7AGKu1sXpszK5j8pb", "payment_method_details"=>{"card"=>{"brand"=>"visa", "checks"=>{"address_line1_check"=>nil, "address_postal_code_check"=>nil, "cvc_check"=>nil}, "country"=>"US", "exp_month"=>9, "exp_year"=>2022, "fingerprint"=>"Ljea7bKAQCDQny0P", "funding"=>"credit", "installments"=>nil, "last4"=>"4242", "network"=>"visa", "three_d_secure"=>nil, "wallet"=>nil}, "type"=>"card"}, "receipt_email"=>nil, "receipt_number"=>nil, "receipt_url"=>"https://pay.stripe.com/receipts/acct_1JEt3yK7AGKu1sXp/ch_3JcZEjK7AGKu1sXp11zsh21a/rcpt_KH7TR6qowLFksT810lqRN8XuCsqnTWP", "refunded"=>false, "refunds"=>{"object"=>"list", "data"=>[], "has_more"=>false, "total_count"=>0, "url"=>"/v1/charges/ch_3JcZEjK7AGKu1sXp11zsh21a/refunds"}, "review"=>nil, "shipping"=>{"address"=>{"city"=>"San Francisco", "country"=>"US", "line1"=>"510 Townsend St", "line2"=>nil, "postal_code"=>"94103", "state"=>"CA"}, "carrier"=>nil, "name"=>"Jenny Rosen", "phone"=>nil, "tracking_number"=>nil}, "source"=>nil, "source_transfer"=>nil, "statement_descriptor"=>nil, "statement_descriptor_suffix"=>nil, "status"=>"succeeded", "transfer_data"=>nil, "transfer_group"=>nil}], "has_more"=>false, "total_count"=>1, "url"=>"/v1/charges?payment_intent=pi_3JcZEjK7AGKu1sXp1UkclVmk"}, "client_secret"=>"[FILTERED]", "confirmation_method"=>"automatic", "created"=>1632331681, "currency"=>"usd", "customer"=>"cus_KH7TNeql2aLgPx", "description"=>nil, "invoice"=>nil, "last_payment_error"=>nil, "livemode"=>false, "metadata"=>{}, "next_action"=>nil, "on_behalf_of"=>nil, "payment_method"=>"pm_1JcZElK7AGKu1sXpszK5j8pb", "payment_method_options"=>{"card"=>{"installments"=>nil, "network"=>nil, "request_three_d_secure"=>"automatic"}}, "payment_method_types"=>["card"], "receipt_email"=>nil, "review"=>nil, "setup_future_usage"=>nil, "shipping"=>{"address"=>{"city"=>"San Francisco", "country"=>"US", "line1"=>"510 Townsend St", "line2"=>nil, "postal_code"=>"94103", "state"=>"CA"}, "carrier"=>nil, "name"=>"Jenny Rosen", "phone"=>nil, "tracking_number"=>nil}, "source"=>nil, "statement_descriptor"=>nil, "statement_descriptor_suffix"=>nil, "status"=>"succeeded", "transfer_data"=>nil, "transfer_group"=>nil}}, "livemode"=>false, "pending_webhooks"=>2, "request"=>{"id"=>"req_ucdF0o2emQhbaD", "idempotency_key"=>"[FILTERED]"}, "type"=>"payment_intent.succeeded"}}
+Completed 200 OK in 24ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 4798)
+
+
+Started POST "/webhooks" for ::1 at 2021-09-22 19:28:09 +0200
+Processing by WebhooksController#create as XML
+  Parameters: {"id"=>"evt_3JcZEjK7AGKu1sXp1SeXdDw8", "object"=>"event", "api_version"=>"2020-08-27", "created"=>1632331686, "data"=>{"object"=>{"id"=>"ch_3JcZEjK7AGKu1sXp11zsh21a", "object"=>"charge", "amount"=>3000, "amount_captured"=>3000, "amount_refunded"=>0, "amount_updates"=>[], "application"=>nil, "application_fee"=>nil, "application_fee_amount"=>nil, "balance_transaction"=>"txn_3JcZEjK7AGKu1sXp1sYhLWTS", "billing_details"=>{"address"=>{"city"=>nil, "country"=>nil, "line1"=>nil, "line2"=>nil, "postal_code"=>nil, "state"=>nil}, "email"=>"stripe@example.com", "name"=>nil, "phone"=>nil}, "calculated_statement_descriptor"=>"YARD.LIVE", "captured"=>true, "created"=>1632331685, "currency"=>"usd", "customer"=>"cus_KH7TNeql2aLgPx", "description"=>nil, "destination"=>nil, "dispute"=>nil, "disputed"=>false, "failure_code"=>nil, "failure_message"=>nil, "fraud_details"=>{}, "invoice"=>nil, "livemode"=>false, "metadata"=>{}, "on_behalf_of"=>nil, "order"=>nil, "outcome"=>{"network_status"=>"approved_by_network", "reason"=>nil, "risk_level"=>"normal", "risk_score"=>3, "seller_message"=>"Payment complete.", "type"=>"authorized"}, "paid"=>true, "payment_intent"=>"pi_3JcZEjK7AGKu1sXp1UkclVmk", "payment_method"=>"pm_1JcZElK7AGKu1sXpszK5j8pb", "payment_method_details"=>{"card"=>{"brand"=>"visa", "checks"=>{"address_line1_check"=>nil, "address_postal_code_check"=>nil, "cvc_check"=>nil}, "country"=>"US", "exp_month"=>9, "exp_year"=>2022, "fingerprint"=>"Ljea7bKAQCDQny0P", "funding"=>"credit", "installments"=>nil, "last4"=>"4242", "network"=>"visa", "three_d_secure"=>nil, "wallet"=>nil}, "type"=>"card"}, "receipt_email"=>nil, "receipt_number"=>nil, "receipt_url"=>"https://pay.stripe.com/receipts/acct_1JEt3yK7AGKu1sXp/ch_3JcZEjK7AGKu1sXp11zsh21a/rcpt_KH7TR6qowLFksT810lqRN8XuCsqnTWP", "refunded"=>false, "refunds"=>{"object"=>"list", "data"=>[], "has_more"=>false, "total_count"=>0, "url"=>"/v1/charges/ch_3JcZEjK7AGKu1sXp11zsh21a/refunds"}, "review"=>nil, "shipping"=>{"address"=>{"city"=>"San Francisco", "country"=>"US", "line1"=>"510 Townsend St", "line2"=>nil, "postal_code"=>"94103", "state"=>"CA"}, "carrier"=>nil, "name"=>"Jenny Rosen", "phone"=>nil, "tracking_number"=>nil}, "source"=>nil, "source_transfer"=>nil, "statement_descriptor"=>nil, "statement_descriptor_suffix"=>nil, "status"=>"succeeded", "transfer_data"=>nil, "transfer_group"=>nil}}, "livemode"=>false, "pending_webhooks"=>2, "request"=>{"id"=>"req_ucdF0o2emQhbaD", "idempotency_key"=>"[FILTERED]"}, "type"=>"charge.succeeded", "webhook"=>{"id"=>"evt_3JcZEjK7AGKu1sXp1SeXdDw8", "object"=>"event", "api_version"=>"2020-08-27", "created"=>1632331686, "data"=>{"object"=>{"id"=>"ch_3JcZEjK7AGKu1sXp11zsh21a", "object"=>"charge", "amount"=>3000, "amount_captured"=>3000, "amount_refunded"=>0, "amount_updates"=>[], "application"=>nil, "application_fee"=>nil, "application_fee_amount"=>nil, "balance_transaction"=>"txn_3JcZEjK7AGKu1sXp1sYhLWTS", "billing_details"=>{"address"=>{"city"=>nil, "country"=>nil, "line1"=>nil, "line2"=>nil, "postal_code"=>nil, "state"=>nil}, "email"=>"stripe@example.com", "name"=>nil, "phone"=>nil}, "calculated_statement_descriptor"=>"YARD.LIVE", "captured"=>true, "created"=>1632331685, "currency"=>"usd", "customer"=>"cus_KH7TNeql2aLgPx", "description"=>nil, "destination"=>nil, "dispute"=>nil, "disputed"=>false, "failure_code"=>nil, "failure_message"=>nil, "fraud_details"=>{}, "invoice"=>nil, "livemode"=>false, "metadata"=>{}, "on_behalf_of"=>nil, "order"=>nil, "outcome"=>{"network_status"=>"approved_by_network", "reason"=>nil, "risk_level"=>"normal", "risk_score"=>3, "seller_message"=>"Payment complete.", "type"=>"authorized"}, "paid"=>true, "payment_intent"=>"pi_3JcZEjK7AGKu1sXp1UkclVmk", "payment_method"=>"pm_1JcZElK7AGKu1sXpszK5j8pb", "payment_method_details"=>{"card"=>{"brand"=>"visa", "checks"=>{"address_line1_check"=>nil, "address_postal_code_check"=>nil, "cvc_check"=>nil}, "country"=>"US", "exp_month"=>9, "exp_year"=>2022, "fingerprint"=>"Ljea7bKAQCDQny0P", "funding"=>"credit", "installments"=>nil, "last4"=>"4242", "network"=>"visa", "three_d_secure"=>nil, "wallet"=>nil}, "type"=>"card"}, "receipt_email"=>nil, "receipt_number"=>nil, "receipt_url"=>"https://pay.stripe.com/receipts/acct_1JEt3yK7AGKu1sXp/ch_3JcZEjK7AGKu1sXp11zsh21a/rcpt_KH7TR6qowLFksT810lqRN8XuCsqnTWP", "refunded"=>false, "refunds"=>{"object"=>"list", "data"=>[], "has_more"=>false, "total_count"=>0, "url"=>"/v1/charges/ch_3JcZEjK7AGKu1sXp11zsh21a/refunds"}, "review"=>nil, "shipping"=>{"address"=>{"city"=>"San Francisco", "country"=>"US", "line1"=>"510 Townsend St", "line2"=>nil, "postal_code"=>"94103", "state"=>"CA"}, "carrier"=>nil, "name"=>"Jenny Rosen", "phone"=>nil, "tracking_number"=>nil}, "source"=>nil, "source_transfer"=>nil, "statement_descriptor"=>nil, "statement_descriptor_suffix"=>nil, "status"=>"succeeded", "transfer_data"=>nil, "transfer_group"=>nil}}, "livemode"=>false, "pending_webhooks"=>2, "request"=>{"id"=>"req_ucdF0o2emQhbaD", "idempotency_key"=>"[FILTERED]"}, "type"=>"charge.succeeded"}}
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 2882)
+
+
+Started POST "/webhooks" for ::1 at 2021-09-22 19:28:11 +0200
+Processing by WebhooksController#create as XML
+  Parameters: {"id"=>"evt_1JcZEpK7AGKu1sXpA20cx9Di", "object"=>"event", "api_version"=>"2020-08-27", "created"=>1632331687, "data"=>{"object"=>{"id"=>"cs_test_a1240AdNBF4218Hkx2AK5yRI0czBohboqlfI8CQli1Zw0OkoRdpvY1CiM4", "object"=>"checkout.session", "after_expiration"=>nil, "allow_promotion_codes"=>nil, "amount_subtotal"=>3000, "amount_total"=>3000, "automatic_tax"=>{"enabled"=>false, "status"=>nil}, "billing_address_collection"=>nil, "cancel_url"=>"https://httpbin.org/post", "client_reference_id"=>nil, "consent"=>nil, "consent_collection"=>nil, "currency"=>"usd", "customer"=>"cus_KH7TNeql2aLgPx", "customer_details"=>{"email"=>"stripe@example.com", "tax_exempt"=>"none", "tax_ids"=>[]}, "customer_email"=>nil, "expires_at"=>1632418081, "livemode"=>false, "locale"=>nil, "metadata"=>{}, "mode"=>"payment", "payment_intent"=>"pi_3JcZEjK7AGKu1sXp1UkclVmk", "payment_method_options"=>{}, "payment_method_types"=>["card"], "payment_status"=>"paid", "recovered_from"=>nil, "setup_intent"=>nil, "shipping"=>nil, "shipping_address_collection"=>nil, "submit_type"=>nil, "subscription"=>nil, "success_url"=>"https://httpbin.org/post", "total_details"=>{"amount_discount"=>0, "amount_shipping"=>0, "amount_tax"=>0}, "url"=>nil}}, "livemode"=>false, "pending_webhooks"=>2, "request"=>{"id"=>nil, "idempotency_key"=>"[FILTERED]"}, "type"=>"checkout.session.completed", "webhook"=>{"id"=>"evt_1JcZEpK7AGKu1sXpA20cx9Di", "object"=>"event", "api_version"=>"2020-08-27", "created"=>1632331687, "data"=>{"object"=>{"id"=>"cs_test_a1240AdNBF4218Hkx2AK5yRI0czBohboqlfI8CQli1Zw0OkoRdpvY1CiM4", "object"=>"checkout.session", "after_expiration"=>nil, "allow_promotion_codes"=>nil, "amount_subtotal"=>3000, "amount_total"=>3000, "automatic_tax"=>{"enabled"=>false, "status"=>nil}, "billing_address_collection"=>nil, "cancel_url"=>"https://httpbin.org/post", "client_reference_id"=>nil, "consent"=>nil, "consent_collection"=>nil, "currency"=>"usd", "customer"=>"cus_KH7TNeql2aLgPx", "customer_details"=>{"email"=>"stripe@example.com", "tax_exempt"=>"none", "tax_ids"=>[]}, "customer_email"=>nil, "expires_at"=>1632418081, "livemode"=>false, "locale"=>nil, "metadata"=>{}, "mode"=>"payment", "payment_intent"=>"pi_3JcZEjK7AGKu1sXp1UkclVmk", "payment_method_options"=>{}, "payment_method_types"=>["card"], "payment_status"=>"paid", "recovered_from"=>nil, "setup_intent"=>nil, "shipping"=>nil, "shipping_address_collection"=>nil, "submit_type"=>nil, "subscription"=>nil, "success_url"=>"https://httpbin.org/post", "total_details"=>{"amount_discount"=>0, "amount_shipping"=>0, "amount_tax"=>0}, "url"=>nil}}, "livemode"=>false, "pending_webhooks"=>2, "request"=>{"id"=>nil, "idempotency_key"=>"[FILTERED]"}, "type"=>"checkout.session.completed"}}
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1707)
+
+

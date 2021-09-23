@@ -1,5 +1,7 @@
 <h1>Hello there... These are the orders</h1>
 
+<ul id="sponsorshipOrdersUl">
+</ul>
 <button type="submit" id="btn">Sponsor dis</button>
 <script charset="utf-8">
   const btn = document.querySelector('#btn');
@@ -17,7 +19,7 @@
         sponsorship_order: {
           status: "paid",
           paid_at: 1632066571,
-          stripe_id: 'pi_123',
+          stripe_id: `pi_123__${Math.random()}`
         }
       }),
     })
@@ -29,4 +31,13 @@
       console.log('Error', error);
     });
   });
+  const sponsorshipOrdersUl = document.querySelector('#sponsorshipOrdersUl');
+
+  fetch('/sponsorships')
+    .then((response) => response.json())
+    .then((sponsorshipOrders) => {
+      sponsorshipOrders.forEach((o) => {
+        sponsorshipOrdersUl.innerHTML += `<li>${o.id} from ${o.created_at}</li>`
+      });
+    })
 </script>
